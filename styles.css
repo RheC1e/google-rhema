@@ -541,10 +541,11 @@ body {
         margin-top: 1rem;
     }
 
-    /* 船動畫縮小20%：220px -> 176px */
+    /* 船動畫縮小20%：220px -> 176px，並減少下方間距 */
     .ship-container {
         width: 176px;
         height: 176px;
+        margin-bottom: 1rem;
     }
 
     /* 按鈕左右縮小15%，上下縮小10% */
