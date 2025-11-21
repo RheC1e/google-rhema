@@ -173,21 +173,21 @@ body {
     animation: moveWave 4s linear infinite;
     opacity: 0.3;
     z-index: 1;
-    bottom: 55px;
+    bottom: 65px;
 }
 
 .wave2 {
     animation: moveWave 5s linear infinite reverse;
     opacity: 0.4;
     z-index: 1;
-    bottom: 32px;
+    bottom: 42px;
 }
 
 .wave3 {
     animation: moveWave 6s linear infinite;
     opacity: 0.5;
     z-index: 1;
-    bottom: 10px;
+    bottom: 20px;
 }
 
 /* wave4 獨立容器，覆蓋在船體上方 */
