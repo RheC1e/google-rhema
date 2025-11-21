@@ -41,6 +41,10 @@ body {
     min-height: 100vh;
     overflow-x: hidden;
     line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 }
 
 /* 動畫背景 */
@@ -525,12 +529,13 @@ body {
 
 @media (max-width: 480px) {
     .company-name {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
+        white-space: nowrap;
     }
 
     .company-subtitle {
-        font-size: 0.55rem;
-        transform: scaleX(0.85);
+        font-size: 0.48rem;
+        transform: scaleX(0.8);
         white-space: nowrap;
     }
 
