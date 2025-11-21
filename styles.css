@@ -163,6 +163,36 @@ body {
     position: absolute;
     left: 0;
     width: 200%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 V40 Q250,80 500,40 T1000,40 V0 Z" fill="%2300d4ff" opacity="0.5" /></svg>') repeat-x;
+    background-size: 50% 100%;
+}
+
+/* 前3條海浪在船體下方 */
+.wave1 {
+    animation: moveWave 4s linear infinite;
+    opacity: 0.3;
+    z-index: 1;
+    bottom: 55px;
+}
+
+.wave2 {
+    animation: moveWave 5s linear infinite reverse;
+    opacity: 0.4;
+    z-index: 1;
+    bottom: 32px;
+}
+
+.wave3 {
+    animation: moveWave 6s linear infinite;
+    opacity: 0.5;
+    z-index: 1;
+    bottom: 10px;
+}
+
+/* wave4 獨立容器，覆蓋在船體上方 */
+.wave4-container {
+    position: absolute;
     bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
