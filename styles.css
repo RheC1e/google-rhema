@@ -549,34 +549,43 @@ body {
     }
 
     .info-grid {
-        .profile-avatar {
-            width: 60px;
-            height: 60px;
-            font-size: 1.5rem;
-        }
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.3rem;
     }
 
-    /* PWA 安裝提示 */
-    .install-prompt {
-        position: fixed;
-        bottom: var(--spacing-lg);
-        right: var(--spacing-lg);
-        background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
-        padding: var(--spacing-md);
-        border-radius: 12px;
-        box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
-        z-index: 1000;
-        animation: slideInUp 0.5s ease-out;
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+/* PWA 安裝提示 */
+.install-prompt {
+    position: fixed;
+    bottom: var(--spacing-lg);
+    right: var(--spacing-lg);
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+    z-index: 1000;
+    animation: slideInUp 0.5s ease-out;
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(100px);
+        opacity: 0;
     }
 
-    @keyframes slideInUp {
-        from {
-            transform: translateY(100px);
-            opacity: 0;
-        }
-
-        to {
-            transform: translateY(0);
-            opacity: 1;
-        }
+    to {
+        transform: translateY(0);
+        opacity: 1;
     }
+}
