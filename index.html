@@ -19,72 +19,105 @@
     <!-- MSAL.js 2.x -->
     <script src="https://alcdn.msauth.net/browser/2.38.1/js/msal-browser.min.js"></script>
 </head>
-<div class="profile-avatar" id="userAvatar">
-    <span id="userInitials"></span>
-</div>
-<div class="profile-header-info">
-    <h2 id="userName">載入中...</h2>
-    <p id="userEmail"></p>
-</div>
-<button id="logoutButton" class="btn-secondary">登出</button>
-</div>
 
-<div class="profile-content">
-    <h3 class="section-title">個人資訊</h3>
+<body>
+    <div class="background-animation"></div>
 
-    <div class="info-grid">
-        <div class="info-item">
-            <div class="info-label">顯示名稱</div>
-            <div class="info-value" id="displayName">-</div>
+    <div class="container">
+        <!-- Login Screen -->
+        <div id="loginScreen" class="glass-card">
+            <div class="logo-section">
+                <h1 class="company-name">航冠國際聯運有限公司</h1>
+                <p class="company-subtitle">RHEMA INTERNATIONAL LOGISTICS CO., LTD.</p>
+            </div>
+
+            <div class="login-content">
+                <div class="ship-container">
+                    <img src="ship-icon.png" class="ship-image" alt="Ship">
+                    <div class="waves">
+                        <div class="wave wave1"></div>
+                        <div class="wave wave2"></div>
+                    </div>
+                </div>
+                <p class="description">準備好展開旅程了嗎？</p>
+
+                <button id="loginButton" class="btn-primary">
+                    <span>啟 航</span>
+                </button>
+
+                <div id="errorMessage" class="error-message"></div>
+            </div>
         </div>
 
-        <div class="info-item">
-            <div class="info-label">電子郵件</div>
-            <div class="info-value" id="emailAddress">-</div>
-        </div>
+        <!-- Profile Screen -->
+        <div id="profileScreen" class="glass-card" style="display: none;">
+            <div class="profile-header">
+                <div class="profile-avatar" id="userAvatar">
+                    <span id="userInitials"></span>
+                </div>
+                <div class="profile-header-info">
+                    <h2 id="userName">載入中...</h2>
+                    <p id="userEmail"></p>
+                </div>
+                <button id="logoutButton" class="btn-secondary">登出</button>
+            </div>
 
-        <div class="info-item">
-            <div class="info-label">職稱</div>
-            <div class="info-value" id="jobTitle">-</div>
-        </div>
+            <div class="profile-content">
+                <h3 class="section-title">個人資訊</h3>
 
-        <div class="info-item">
-            <div class="info-label">部門</div>
-            <div class="info-value" id="department">-</div>
-        </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <div class="info-label">顯示名稱</div>
+                        <div class="info-value" id="displayName">-</div>
+                    </div>
 
-        <div class="info-item">
-            <div class="info-label">辦公室位置</div>
-            <div class="info-value" id="officeLocation">-</div>
-        </div>
+                    <div class="info-item">
+                        <div class="info-label">電子郵件</div>
+                        <div class="info-value" id="emailAddress">-</div>
+                    </div>
 
-        <div class="info-item">
-            <div class="info-label">手機</div>
-            <div class="info-value" id="mobilePhone">-</div>
-        </div>
+                    <div class="info-item">
+                        <div class="info-label">職稱</div>
+                        <div class="info-value" id="jobTitle">-</div>
+                    </div>
 
-        <div class="info-item">
-            <div class="info-label">辦公室電話</div>
-            <div class="info-value" id="businessPhone">-</div>
-        </div>
+                    <div class="info-item">
+                        <div class="info-label">部門</div>
+                        <div class="info-value" id="department">-</div>
+                    </div>
 
-        <div class="info-item">
-            <div class="info-label">使用者主體名稱</div>
-            <div class="info-value" id="userPrincipalName">-</div>
+                    <div class="info-item">
+                        <div class="info-label">辦公室位置</div>
+                        <div class="info-value" id="officeLocation">-</div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-label">手機</div>
+                        <div class="info-value" id="mobilePhone">-</div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-label">辦公室電話</div>
+                        <div class="info-value" id="businessPhone">-</div>
+                    </div>
+
+                    <div class="info-item">
+                        <div class="info-label">使用者主體名稱</div>
+                        <div class="info-value" id="userPrincipalName">-</div>
+                    </div>
+                </div>
+
+                <div class="additional-info">
+                    <h3 class="section-title">群組成員資格</h3>
+                    <div id="groupMembership" class="group-list">
+                        <div class="loading-spinner">載入中...</div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="additional-info">
-        <h3 class="section-title">群組成員資格</h3>
-        <div id="groupMembership" class="group-list">
-            <div class="loading-spinner">載入中...</div>
-        </div>
-    </div>
-</div>
-</div>
-</div>
-
-<script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 
 </html>
