@@ -1,7 +1,7 @@
 // MSAL 配置
 const msalConfig = {
     auth: {
-        clientId: 'f2ae1812-de3c-47a0-8663-a8374a559401', // Azure 應用程式 ID
+        clientId: 'f2ae1812-de3c-47e0-8663-a8374a559401', // Azure 應用程式 ID
         authority: 'https://login.microsoftonline.com/cd4e36bd-ac9a-4236-9f91-a6718b6b5e45', // 租戶 ID
         redirectUri: window.location.origin, // 當前網址
     },
