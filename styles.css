@@ -529,7 +529,7 @@ body {
 
 @media (max-width: 480px) {
     .company-name {
-        font-size: 1.7rem;
+        font-size: 1.6rem;
         white-space: nowrap;
     }
 
