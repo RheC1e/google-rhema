@@ -15,19 +15,19 @@
     --text-secondary: #b0b0c0;
     --success-color: #00f5a0;
     --error-color: #ff6b6b;
-    
+
     /* Glassmorphism */
     --glass-bg: rgba(255, 255, 255, 0.05);
     --glass-border: rgba(255, 255, 255, 0.1);
     --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-    
+
     /* 間距 */
     --spacing-xs: 0.5rem;
     --spacing-sm: 1rem;
     --spacing-md: 1.5rem;
     --spacing-lg: 2rem;
     --spacing-xl: 3rem;
-    
+
     /* 字體 */
     --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
@@ -51,10 +51,10 @@ body {
     width: 100%;
     height: 100%;
     z-index: -1;
-    background: linear-gradient(135deg, 
-        var(--primary-bg) 0%, 
-        var(--secondary-bg) 50%, 
-        #16213e 100%);
+    background: linear-gradient(135deg,
+            var(--primary-bg) 0%,
+            var(--secondary-bg) 50%,
+            #16213e 100%);
     animation: gradientShift 15s ease infinite;
 }
 
@@ -63,9 +63,9 @@ body {
     position: absolute;
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, 
-        rgba(0, 212, 255, 0.15) 0%, 
-        transparent 70%);
+    background: radial-gradient(circle,
+            rgba(0, 212, 255, 0.15) 0%,
+            transparent 70%);
     top: -250px;
     right: -250px;
     animation: float 20s ease-in-out infinite;
@@ -76,23 +76,40 @@ body {
     position: absolute;
     width: 400px;
     height: 400px;
-    background: radial-gradient(circle, 
-        rgba(127, 90, 240, 0.15) 0%, 
-        transparent 70%);
+    background: radial-gradient(circle,
+            rgba(127, 90, 240, 0.15) 0%,
+            transparent 70%);
     bottom: -200px;
     left: -200px;
     animation: float 25s ease-in-out infinite reverse;
 }
 
 @keyframes gradientShift {
-    0%, 100% { filter: hue-rotate(0deg); }
-    50% { filter: hue-rotate(20deg); }
+
+    0%,
+    100% {
+        filter: hue-rotate(0deg);
+    }
+
+    50% {
+        filter: hue-rotate(20deg);
+    }
 }
 
 @keyframes float {
-    0%, 100% { transform: translate(0, 0) rotate(0deg); }
-    33% { transform: translate(30px, -50px) rotate(120deg); }
-    66% { transform: translate(-20px, 30px) rotate(240deg); }
+
+    0%,
+    100% {
+        transform: translate(0, 0) rotate(0deg);
+    }
+
+    33% {
+        transform: translate(30px, -50px) rotate(120deg);
+    }
+
+    66% {
+        transform: translate(-20px, 30px) rotate(240deg);
+    }
 }
 
 /* 容器 */
@@ -125,6 +142,7 @@ body {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -138,7 +156,7 @@ body {
 }
 
 .company-name {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     font-weight: 700;
     background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
     -webkit-background-clip: text;
@@ -174,7 +192,8 @@ body {
 }
 
 /* 按鈕樣式 */
-.btn-primary, .btn-secondary {
+.btn-primary,
+.btn-secondary {
     padding: var(--spacing-md) var(--spacing-lg);
     border-radius: 12px;
     border: none;
@@ -205,7 +224,7 @@ body {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
     transition: left 0.5s ease;
 }
 
@@ -257,9 +276,19 @@ body {
 }
 
 @keyframes shake {
-    0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    75% { transform: translateX(10px); }
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
 }
 
 /* 個人資料頁面 */
@@ -386,8 +415,15 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
 }
 
 /* 響應式設計 */
@@ -395,20 +431,215 @@ body {
     .container {
         padding: var(--spacing-md);
     }
-    
+
     .glass-card {
         padding: var(--spacing-lg);
     }
-    
+
     .company-name {
-        font-size: 2rem;
+        font-size: 1.8rem;
     }
-    
+
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Microsoft 圖示 */
+.microsoft-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* 錯誤訊息 */
+.error-message {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 8px;
+    color: var(--error-color);
+    font-size: 0.9rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* 個人資料頁面 */
+#profileScreen {
+    max-width: 900px;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    padding-bottom: var(--spacing-lg);
+    border-bottom: 1px solid var(--glass-border);
+    margin-bottom: var(--spacing-lg);
+}
+
+.profile-avatar {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    font-weight: 700;
+    flex-shrink: 0;
+    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
+}
+
+.profile-header-info {
+    flex: 1;
+}
+
+.profile-header-info h2 {
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-xs);
+}
+
+.profile-header-info p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+/* 個人資訊網格 */
+.section-title {
+    font-size: 1.2rem;
+    margin-bottom: var(--spacing-md);
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-xl);
+}
+
+.info-item {
+    background: rgba(255, 255, 255, 0.03);
+    padding: var(--spacing-md);
+    border-radius: 12px;
+    border: 1px solid var(--glass-border);
+    transition: all 0.3s ease;
+}
+
+.info-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    border-color: rgba(0, 212, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+.info-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 500;
+}
+
+.info-value {
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    font-weight: 500;
+    word-break: break-word;
+}
+
+/* 群組列表 */
+.additional-info {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--glass-border);
+}
+
+.group-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.group-badge {
+    background: rgba(0, 212, 255, 0.1);
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    padding: var(--spacing-xs) var(--spacing-md);
+    border-radius: 20px;
+    font-size: 0.9rem;
+    color: var(--accent-color);
+    transition: all 0.3s ease;
+}
+
+.group-badge:hover {
+    background: rgba(0, 212, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+/* 載入動畫 */
+.loading-spinner {
+    text-align: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* 響應式設計 */
+@media (max-width: 768px) {
+    .container {
+        padding: var(--spacing-md);
+    }
+
+    .glass-card {
+        padding: var(--spacing-lg);
+    }
+
+    .company-name {
+        font-size: 1.8rem;
+    }
+
     .profile-header {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .info-grid {
         grid-template-columns: 1fr;
     }
@@ -416,13 +647,13 @@ body {
 
 @media (max-width: 480px) {
     .company-name {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
-    
+
     .login-content h2 {
         font-size: 1.4rem;
     }
-    
+
     .profile-avatar {
         width: 60px;
         height: 60px;
@@ -448,6 +679,7 @@ body {
         transform: translateY(100px);
         opacity: 0;
     }
+
     to {
         transform: translateY(0);
         opacity: 1;
