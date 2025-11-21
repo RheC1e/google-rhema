@@ -114,22 +114,6 @@ body {
 
 /* 船的動畫容器 */
 .ship-container {
-    position: relative;
-    width: 150px;
-    height: 150px;
-    margin: 0 auto var(--spacing-lg);
-}
-
-.ship-svg {
-    width: 100%;
-    height: 100%;
-    animation: floatShip 3s ease-in-out infinite;
-    filter: drop-shadow(0 10px 15px rgba(0, 212, 255, 0.3));
-}
-
-@keyframes floatShip {
-
-    0%,
     100% {
         transform: translateY(0) rotate(0deg);
     }
