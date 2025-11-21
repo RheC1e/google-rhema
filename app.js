@@ -64,7 +64,7 @@ async function initialize() {
         }
     } catch (error) {
         console.error('初始化錯誤:', error);
-        showError('初始化失敗，請重新整理頁面');
+        showError(`初始化失敗: ${error.message || '未知錯誤'}`);
     }
 }
 
@@ -111,23 +111,9 @@ async function silentLogin() {
         const tokenResponse = await myMSALObj.acquireTokenSilent(silentRequest);
         await displayProfile(tokenResponse.accessToken);
 
-        const userProfile = await callMSGraph(graphConfig.graphMeEndpoint, accessToken);
-
-        console.log('用戶資料:', userProfile);
-
-        // 更新 UI
-        updateProfileUI(userProfile);
-
-        // 獲取群組成員資格
-        await loadGroupMembership(accessToken);
-
-        // 切換到個人資料頁面
-        loginScreen.style.display = 'none';
-        profileScreen.style.display = 'block';
-
     } catch (error) {
-        console.error('載入個人資料錯誤:', error);
-        showError('無法載入個人資料');
+        console.log('靜默登入失敗:', error);
+        // 靜默失敗不顯示錯誤，等待用戶手動登入
     }
 }
 
@@ -202,13 +188,7 @@ function handleLogout() {
         postLogoutRedirectUri: window.location.origin
     };
 
-    myMSALObj.logoutPopup(logoutRequest).then(() => {
-        // 重設 UI
-        profileScreen.style.display = 'none';
-        loginScreen.style.display = 'block';
-    }).catch(error => {
-        console.error('登出錯誤:', error);
-    });
+    myMSALObj.logoutRedirect(logoutRequest);
 }
 
 function getInitials(name) {
