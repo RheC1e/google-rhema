@@ -6,7 +6,7 @@ const msalConfig = {
         redirectUri: window.location.origin, // 當前網址
     },
     cache: {
-        cacheLocation: 'sessionStorage', // 使用 sessionStorage
+        cacheLocation: 'localStorage', // 使用 localStorage 實現持久登入
         storeAuthStateInCookie: false,
     }
 };
@@ -85,13 +85,7 @@ async function handleLogin() {
 
         loginButton.disabled = false;
         loginButton.innerHTML = `
-            <svg class="microsoft-icon" viewBox="0 0 21 21" xmlns="http://www.w3.org/2000/svg">
-                <rect x="1" y="1" width="9" height="9" fill="#f25022"/>
-                <rect x="1" y="11" width="9" height="9" fill="#00a4ef"/>
-                <rect x="11" y="1" width="9" height="9" fill="#7fba00"/>
-                <rect x="11" y="11" width="9" height="9" fill="#ffb900"/>
-            </svg>
-            <span>使用 Microsoft 365 登入</span>
+            <span>重試啟航</span>
         `;
     }
 }
@@ -149,6 +143,9 @@ function updateProfileUI(profile) {
     document.getElementById('userName').textContent = profile.displayName || '未提供姓名';
     document.getElementById('userEmail').textContent = profile.mail || profile.userPrincipalName;
 
+    // 嘗試獲取頭貼
+    fetchProfilePhoto();
+
     // 詳細資訊
     document.getElementById('displayName').textContent = profile.displayName || '-';
     document.getElementById('emailAddress').textContent = profile.mail || profile.userPrincipalName || '-';
@@ -203,6 +200,39 @@ async function callMSGraph(endpoint, accessToken) {
     }
 
     return await response.json();
+}
+
+async function fetchProfilePhoto() {
+    try {
+        const accounts = myMSALObj.getAllAccounts();
+        if (accounts.length === 0) return;
+
+        const request = {
+            scopes: ['User.Read'],
+            account: accounts[0]
+        };
+
+        const response = await myMSALObj.acquireTokenSilent(request);
+        const accessToken = response.accessToken;
+
+        const headers = new Headers();
+        headers.append('Authorization', `Bearer ${accessToken}`);
+
+        const photoResponse = await fetch('https://graph.microsoft.com/v1.0/me/photo/$value', {
+            method: 'GET',
+            headers: headers
+        });
+
+        if (photoResponse.ok) {
+            const blob = await photoResponse.blob();
+            const url = URL.createObjectURL(blob);
+
+            const avatarContainer = document.getElementById('userAvatar');
+            avatarContainer.innerHTML = `<img src="${url}" alt="User Photo">`;
+        }
+    } catch (error) {
+        console.log('無法獲取頭貼，使用預設縮寫:', error);
+    }
 }
 
 function handleLogout() {

@@ -46,195 +46,103 @@ body {
 /* 動畫背景 */
 .background-animation {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: linear-gradient(135deg,
-            var(--primary-bg) 0%,
-            var(--secondary-bg) 50%,
-            #16213e 100%);
-    animation: gradientShift 15s ease infinite;
-}
 
-.background-animation::before {
-    content: '';
-    position: absolute;
-    width: 500px;
-    height: 500px;
-    background: radial-gradient(circle,
-            rgba(0, 212, 255, 0.15) 0%,
-            transparent 70%);
-    top: -250px;
-    right: -250px;
-    animation: float 20s ease-in-out infinite;
-}
-
-.background-animation::after {
-    content: '';
-    position: absolute;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle,
-            rgba(127, 90, 240, 0.15) 0%,
-            transparent 70%);
-    bottom: -200px;
-    left: -200px;
-    animation: float 25s ease-in-out infinite reverse;
-}
-
-@keyframes gradientShift {
-
-    0%,
-    100% {
-        filter: hue-rotate(0deg);
+    .btn-primary::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(135deg,
+                var(--primary-bg) 0%,
+                var(--secondary-bg) 50%,
+                #16213e 100%);
+        animation: gradientShift 15s ease infinite;
     }
 
-    50% {
-        filter: hue-rotate(20deg);
-    }
-}
-
-@keyframes float {
-
-    0%,
-    100% {
-        transform: translate(0, 0) rotate(0deg);
-    }
-
-    33% {
-        transform: translate(30px, -50px) rotate(120deg);
+    .background-animation::before {
+        content: '';
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        background: radial-gradient(circle,
+                rgba(0, 212, 255, 0.15) 0%,
+                transparent 70%);
+        top: -250px;
+        right: -250px;
+        animation: float 20s ease-in-out infinite;
     }
 
-    66% {
-        transform: translate(-20px, 30px) rotate(240deg);
-    }
-}
-
-/* 容器 */
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: var(--spacing-lg);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-/* Glassmorphism 卡片 */
-.glass-card {
-    background: var(--glass-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 24px;
-    border: 1px solid var(--glass-border);
-    box-shadow: var(--glass-shadow);
-    padding: var(--spacing-xl);
-    width: 100%;
-    max-width: 600px;
-    animation: cardFadeIn 0.6s ease-out;
-}
-
-@keyframes cardFadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
+    .background-animation::after {
+        content: '';
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        background: radial-gradient(circle,
+                rgba(127, 90, 240, 0.15) 0%,
+                transparent 70%);
+        bottom: -200px;
+        left: -200px;
+        animation: float 25s ease-in-out infinite reverse;
     }
 
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    @keyframes gradientShift {
+
+        0%,
+        100% {
+            filter: hue-rotate(0deg);
+        }
+
+        50% {
+            filter: hue-rotate(20deg);
+        }
     }
-}
 
-/* Logo 區域 */
-.logo-section {
-    text-align: center;
-    margin-bottom: var(--spacing-xl);
-}
+    @keyframes float {
 
-.company-name {
-    font-size: 2.2rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: var(--spacing-xs);
-    letter-spacing: -0.5px;
-}
+        0%,
+        100% {
+            transform: translate(0, 0) rotate(0deg);
+        }
 
-.company-subtitle {
-    font-size: 0.9rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-weight: 500;
-}
+        33% {
+            transform: translate(30px, -50px) rotate(120deg);
+        }
 
-/* 登入內容 */
-.login-content {
-    text-align: center;
-}
+        align-items: center;
+        justify-content: center;
+    }
 
-.login-content h2 {
-    font-size: 1.8rem;
-    margin-bottom: var(--spacing-sm);
-    font-weight: 600;
-}
+    /* Glassmorphism 卡片 */
+    .glass-card {
+        background: var(--glass-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border-radius: 24px;
+        border: 1px solid var(--glass-border);
+        box-shadow: var(--glass-shadow);
+        padding: var(--spacing-xl);
+        width: 100%;
+        max-width: 600px;
+        animation: cardFadeIn 0.6s ease-out;
+    }
 
-.description {
-    color: var(--text-secondary);
-    margin-bottom: var(--spacing-lg);
-    font-size: 1rem;
-}
+    @keyframes cardFadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
 
-/* 按鈕樣式 */
-.btn-primary,
-.btn-secondary {
-    padding: var(--spacing-md) var(--spacing-lg);
-    border-radius: 12px;
-    border: none;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-family: var(--font-family);
-    display: inline-flex;
-    align-items: center;
-    gap: var(--spacing-sm);
-    position: relative;
-    overflow: hidden;
-}
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
 
-.btn-primary {
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
-    color: var(--text-primary);
-    width: 100%;
-    justify-content: center;
-    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.3);
-}
-
-.btn-primary::before {
-    content: '';
-    position: absolute;
     top: 0;
     left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s ease;
-}
-
-.btn-primary:hover::before {
-    left: 100%;
-}
-
-.btn-primary:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 30px rgba(0, 212, 255, 0.5);
 }
 
 .btn-primary:active {
@@ -641,47 +549,34 @@ body {
     }
 
     .info-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .company-name {
-        font-size: 1.3rem;
+        .profile-avatar {
+            width: 60px;
+            height: 60px;
+            font-size: 1.5rem;
+        }
     }
 
-    .login-content h2 {
-        font-size: 1.4rem;
+    /* PWA 安裝提示 */
+    .install-prompt {
+        position: fixed;
+        bottom: var(--spacing-lg);
+        right: var(--spacing-lg);
+        background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+        padding: var(--spacing-md);
+        border-radius: 12px;
+        box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
+        z-index: 1000;
+        animation: slideInUp 0.5s ease-out;
     }
 
-    .profile-avatar {
-        width: 60px;
-        height: 60px;
-        font-size: 1.5rem;
-    }
-}
+    @keyframes slideInUp {
+        from {
+            transform: translateY(100px);
+            opacity: 0;
+        }
 
-/* PWA 安裝提示 */
-.install-prompt {
-    position: fixed;
-    bottom: var(--spacing-lg);
-    right: var(--spacing-lg);
-    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
-    padding: var(--spacing-md);
-    border-radius: 12px;
-    box-shadow: 0 4px 20px rgba(0, 212, 255, 0.4);
-    z-index: 1000;
-    animation: slideInUp 0.5s ease-out;
-}
-
-@keyframes slideInUp {
-    from {
-        transform: translateY(100px);
-        opacity: 0;
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
     }
-
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
-}
