@@ -522,6 +522,34 @@ body {
         text-align: center;
     }
 
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-name {
+        font-size: 1.5rem;
+        white-space: nowrap;
+    }
+
+    .company-subtitle {
+        font-size: 0.55rem;
+        transform: scaleX(0.85);
+        white-space: nowrap;
+    }
+
+    .profile-avatar {
+        width: 60px;
+        height: 60px;
+        font-size: 1.5rem;
+    }
+}
+
+/* PWA 安裝提示 */
+.install-prompt {
+    position: fixed;
+    bottom: var(--spacing-lg);
     right: var(--spacing-lg);
     background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
     padding: var(--spacing-md);
