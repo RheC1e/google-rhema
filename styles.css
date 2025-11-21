@@ -107,25 +107,6 @@ body {
         transform: translate(30px, -50px) rotate(120deg);
     }
 
-    66% {
-        transform: translate(-20px, 30px) rotate(240deg);
-    }
-}
-
-/* 船的動畫容器 */
-.ship-container {
-    100% {
-        transform: translateY(0) rotate(0deg);
-    }
-
-    50% {
-        transform: translateY(-10px) rotate(2deg);
-    }
-}
-
-/* 海浪動畫 */
-.waves {
-    position: absolute;
     bottom: 10px;
     left: 50%;
     transform: translateX(-50%);
