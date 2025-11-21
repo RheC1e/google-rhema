@@ -528,6 +528,31 @@ body {
 }
 
 @media (max-width: 480px) {
+
+    /* 容器上下高度減少20% */
+    .glass-card {
+        padding-top: 1.6rem;
+        padding-bottom: 1.6rem;
+    }
+
+    /* 公司名往下移 */
+    .logo-section {
+        margin-bottom: 2rem;
+        margin-top: 1rem;
+    }
+
+    /* 船動畫縮小20%：220px -> 176px */
+    .ship-container {
+        width: 176px;
+        height: 176px;
+    }
+
+    /* 按鈕左右縮小15%，上下縮小10% */
+    .btn-primary {
+        padding: 0.9rem 2.125rem;
+        max-width: 255px;
+    }
+
     .company-name {
         font-size: 1.6rem;
         white-space: nowrap;
