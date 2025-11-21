@@ -107,6 +107,243 @@ body {
         transform: translate(30px, -50px) rotate(120deg);
     }
 
+    66% {
+        transform: translate(-20px, 30px) rotate(240deg);
+    }
+}
+
+/* 船的動畫容器 */
+.ship-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 0 auto var(--spacing-lg);
+}
+
+.ship-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: floatShip 3s ease-in-out infinite;
+    filter: drop-shadow(0 10px 15px rgba(0, 212, 255, 0.3));
+}
+
+@keyframes floatShip {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-5deg);
+    }
+
+    50% {
+        transform: translateY(-12px) rotate(3deg);
+    }
+}
+
+/* 海浪動畫 */
+.waves {
+    position: absolute;
+    bottom: 15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 45px;
+    overflow: hidden;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url('data:image/svg+xml;utf8,<svg viewBox="0 0 1200 120" xmlns="http://www.w3.org/2000/svg"><path d="M0,0 V40 Q250,80 500,40 T1000,40 V0 Z" fill="%2300d4ff" opacity="0.5" /></svg>') repeat-x;
+    background-size: 50% 100%;
+}
+
+.wave1 {
+    animation: moveWave 4s linear infinite;
+    opacity: 0.7;
+}
+
+.wave2 {
+    bottom: -5px;
+    animation: moveWave 6s linear infinite reverse;
+    opacity: 0.4;
+}
+
+@keyframes moveWave {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* 容器 */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--spacing-lg);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Glassmorphism 卡片 */
+.glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 24px;
+    border: 1px solid var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    padding: var(--spacing-xl);
+    width: 100%;
+    max-width: 600px;
+    animation: cardFadeIn 0.6s ease-out;
+}
+
+@keyframes cardFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 按鈕樣式 */
+.btn-primary {
+    background: linear-gradient(135deg, var(--accent-color), var(--accent-secondary));
+    color: #fff;
+    border: none;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+    margin-top: var(--spacing-md);
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+    left: 100%;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(0, 212, 255, 0.5);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    border: 1px solid var(--glass-border);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Microsoft 圖示 */
+.microsoft-icon {
+    width: 20px;
+    height: 20px;
+}
+
+/* 錯誤訊息 */
+.error-message {
+    margin-top: var(--spacing-md);
+    padding: var(--spacing-sm);
+    background: rgba(255, 107, 107, 0.1);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+    border-radius: 8px;
+    color: var(--error-color);
+    font-size: 0.9rem;
+    display: none;
+}
+
+.error-message.show {
+    display: block;
+    animation: shake 0.5s ease;
+}
+
+@keyframes shake {
+
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-10px);
+    }
+
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+/* 登入內容 */
+.login-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo-section {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.company-name {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: var(--spacing-xs);
+    background: linear-gradient(135deg, #fff 0%, #b0b0c0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.company-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
     letter-spacing: 1px;
 }
 
@@ -269,9 +506,10 @@ body {
     }
 
     .company-name {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
 
+    /* Adjusted for mobile */
     .profile-header {
         flex-direction: column;
         text-align: center;
