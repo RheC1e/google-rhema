@@ -117,6 +117,29 @@ async function silentLogin() {
     }
 }
 
+async function displayProfile(accessToken) {
+    try {
+        // 獲取用戶資料
+        const userProfile = await callMSGraph(graphConfig.graphMeEndpoint, accessToken);
+
+        console.log('用戶資料:', userProfile);
+
+        // 更新 UI
+        updateProfileUI(userProfile);
+
+        // 獲取群組成員資格
+        await loadGroupMembership(accessToken);
+
+        // 切換到個人資料頁面
+        loginScreen.style.display = 'none';
+        profileScreen.style.display = 'block';
+
+    } catch (error) {
+        console.error('載入個人資料錯誤:', error);
+        showError('無法載入個人資料');
+    }
+}
+
 function updateProfileUI(profile) {
     // 姓名首字母
     const initials = getInitials(profile.displayName || profile.userPrincipalName);
